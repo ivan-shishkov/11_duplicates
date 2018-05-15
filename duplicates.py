@@ -1,6 +1,20 @@
 import argparse
-import os.path
 import sys
+import os
+from collections import defaultdict
+
+
+def get_files_duplicates(path):
+    files_locations = defaultdict(list)
+
+    for root, __, files in os.walk(path):
+        for filename in files:
+            full_file_path = os.path.join(root, filename)
+            file_size = os.path.getsize(full_file_path)
+
+            files_locations[(filename, file_size)].append(full_file_path)
+
+    return filter(lambda item: len(item[1]) > 1, files_locations.items())
 
 
 def parse_command_line_arguments():
