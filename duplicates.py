@@ -31,6 +31,21 @@ def parse_command_line_arguments():
     return command_line_arguments
 
 
+def print_files_duplicates(files_duplicates):
+    for file_duplicates in files_duplicates:
+        filename = file_duplicates[0][0]
+        file_size = file_duplicates[0][1]
+
+        print()
+        print('Found duplicates of {} with size {} bytes in:'.format(
+            filename,
+            file_size,
+        ))
+        for path in file_duplicates[1]:
+            print(path)
+    print()
+
+
 def main():
     command_line_arguments = parse_command_line_arguments()
 
@@ -38,6 +53,8 @@ def main():
 
     if not os.path.isdir(path):
         sys.exit('This path is not a directory or not exists')
+
+    print_files_duplicates(files_duplicates=get_files_duplicates(path))
 
 
 if __name__ == '__main__':
