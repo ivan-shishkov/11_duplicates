@@ -32,6 +32,10 @@ def parse_command_line_arguments():
 
 
 def print_files_duplicates(files_duplicates):
+    if not files_duplicates:
+        print('Files duplicates not found')
+        return
+
     for file_duplicates in files_duplicates:
         filename = file_duplicates[0][0]
         file_size = file_duplicates[0][1]
