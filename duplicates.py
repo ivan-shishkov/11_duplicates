@@ -22,7 +22,8 @@ def parse_command_line_arguments():
 
     parser.add_argument(
         'path',
-        help='a path for search duplicates of files (including subdirectories)',
+        help='a path for search duplicates of files '
+             '(including subdirectories)',
         type=str,
     )
 
