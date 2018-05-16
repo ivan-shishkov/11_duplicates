@@ -14,7 +14,7 @@ def find_files_duplicates(path):
 
             files_locations[(filename, file_size)].append(full_file_path)
 
-    return list(filter(lambda item: len(item[1]) > 1, files_locations.items()))
+    return [item for item in files_locations.items() if len(item[1]) > 1]
 
 
 def parse_command_line_arguments():
