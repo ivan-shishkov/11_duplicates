@@ -4,7 +4,7 @@ import os
 from collections import defaultdict
 
 
-def get_files_duplicates(path):
+def find_files_duplicates(path):
     files_locations = defaultdict(list)
 
     for root, __, files in os.walk(path):
@@ -31,7 +31,7 @@ def parse_command_line_arguments():
     return command_line_arguments
 
 
-def print_files_duplicates(files_duplicates):
+def print_files_duplicates_info(files_duplicates):
     if not files_duplicates:
         print('Files duplicates not found')
         return
@@ -58,7 +58,7 @@ def main():
     if not os.path.isdir(path):
         sys.exit('This path is not a directory or not exists')
 
-    print_files_duplicates(files_duplicates=get_files_duplicates(path))
+    print_files_duplicates_info(files_duplicates=find_files_duplicates(path))
 
 
 if __name__ == '__main__':
