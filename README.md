@@ -1,6 +1,6 @@
 # Anti-Duplicator
 
-[TODO. There will be project description]
+This script allows to find files duplicates (files with same both filename and size) in given path (including subdirectories).
 
 # Project Goals
 
