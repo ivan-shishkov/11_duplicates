@@ -4,7 +4,7 @@ import os
 from collections import defaultdict
 
 
-def find_files_duplicates(path):
+def get_files_duplicates_info(path):
     files_locations = defaultdict(list)
 
     for root, __, files in os.walk(path):
@@ -60,7 +60,7 @@ def main():
         sys.exit('This path is not a directory or not exists')
 
     print_files_duplicates_info(
-        files_duplicates_info=find_files_duplicates(path),
+        files_duplicates_info=get_files_duplicates_info(path),
     )
 
 
