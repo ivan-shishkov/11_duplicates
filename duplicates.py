@@ -37,17 +37,17 @@ def print_files_duplicates_info(files_duplicates_info):
         print('Files duplicates not found')
         return
 
-    for file_duplicates in files_duplicates_info:
-        filename = file_duplicates[0][0]
-        file_size = file_duplicates[0][1]
+    for file_duplicates_info in files_duplicates_info:
+        filename = file_duplicates_info[0][0]
+        file_size = file_duplicates_info[0][1]
 
         print()
         print('Found duplicates of {} with size {} bytes in:'.format(
             filename,
             file_size,
         ))
-        for path in file_duplicates[1]:
-            print(path)
+        for file_duplicate_path in file_duplicates_info[1]:
+            print(file_duplicate_path)
     print()
 
 
