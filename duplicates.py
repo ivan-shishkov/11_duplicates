@@ -31,12 +31,12 @@ def parse_command_line_arguments():
     return command_line_arguments
 
 
-def print_files_duplicates_info(files_duplicates):
-    if not files_duplicates:
+def print_files_duplicates_info(files_duplicates_info):
+    if not files_duplicates_info:
         print('Files duplicates not found')
         return
 
-    for file_duplicates in files_duplicates:
+    for file_duplicates in files_duplicates_info:
         filename = file_duplicates[0][0]
         file_size = file_duplicates[0][1]
 
@@ -58,7 +58,9 @@ def main():
     if not os.path.isdir(path):
         sys.exit('This path is not a directory or not exists')
 
-    print_files_duplicates_info(files_duplicates=find_files_duplicates(path))
+    print_files_duplicates_info(
+        files_duplicates_info=find_files_duplicates(path),
+    )
 
 
 if __name__ == '__main__':
