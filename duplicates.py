@@ -7,8 +7,8 @@ from collections import defaultdict
 def get_files_duplicates_info(path):
     files_locations = defaultdict(list)
 
-    for root, __, files in os.walk(path):
-        for filename in files:
+    for root, _, filenames in os.walk(path):
+        for filename in filenames:
             full_file_path = os.path.join(root, filename)
             file_size = os.path.getsize(full_file_path)
 
