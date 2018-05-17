@@ -47,8 +47,7 @@ def print_files_duplicates_info(files_duplicates_info):
             filename,
             file_size,
         ))
-        for file_path in file_paths:
-            print(file_path)
+        print('\n'.join(file_paths))
     print()
 
 
