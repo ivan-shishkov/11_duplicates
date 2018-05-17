@@ -7,12 +7,12 @@ from collections import defaultdict
 def get_files_duplicates_info(path):
     files_locations = defaultdict(list)
 
-    for root, _, filenames in os.walk(path):
-        for filename in filenames:
-            full_file_path = os.path.join(root, filename)
+    for root, _, file_names in os.walk(path):
+        for file_name in file_names:
+            full_file_path = os.path.join(root, file_name)
             file_size = os.path.getsize(full_file_path)
 
-            files_locations[(filename, file_size)].append(full_file_path)
+            files_locations[(file_name, file_size)].append(full_file_path)
 
     return {
         file_info: file_paths
@@ -41,10 +41,10 @@ def print_files_duplicates_info(files_duplicates_info):
         print('Files duplicates not found')
         return
 
-    for (filename, file_size), file_paths in files_duplicates_info.items():
+    for (file_name, file_size), file_paths in files_duplicates_info.items():
         print()
         print('Found duplicates of {} with size {} bytes in:'.format(
-            filename,
+            file_name,
             file_size,
         ))
         print('\n'.join(file_paths))
